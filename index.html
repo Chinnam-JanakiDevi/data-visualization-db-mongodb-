@@ -1,0 +1,48 @@
+<html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3.js Visualization</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Container for the bar chart -->
+  <h1>Intensity vs published(Show the trend of intensity over time.)</h1>
+
+  <div class="line_bar">
+    <div id="bar-chart"></div>
+    <div id="chart-container"></div>
+  </div>
+  <p>When visualizing "intensity vs sector" in a bar chart, you would likely have each bar representing a different
+    sector (e.g., "Energy," "Technology," etc.), and the height of the bar would represent the intensity value
+    associated with that sector. This helps in comparing the intensity levels across different sectors and identifying
+    trends or variations.</p>
+  <div id="int_vs_sect"></div>
+  <p>X-axis (Likelihood): The x-axis in the bar chart represents the different likelihood values associated with events
+    or scenarios. In your dataset, the "likelihood" variable has values like 1, 2, 3, etc., indicating the likelihood
+    level of each event.
+    Y-axis (Count) : The y-axis represents the count or frequency of occurrences for each likelihood value. For each
+    likelihood level (1, 2, 3, etc.), there is a corresponding bar on the chart, and the height of each bar indicates
+    how many events or scenarios have that particular likelihood level.</p>
+  <div id="likelihood"></div>
+  <div class="pie_chart">
+    <div id="relevance"></div>
+    <div class="sub_pie_chart">
+      <div id="legend-container"></div>
+      <div id="combined-legend-container"></div>
+    </div>
+  </div>
+  <p>In the provided code, a bar chart is visualized using D3.js to show the distribution of events across different regions. The data used for this bar chart is based on the region property in each entry of the dataset. The number of events in each region is counted, and a bar chart is created to represent this distribution.</p>
+  <div id="region-chart"></div>
+  <script src="/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+
+
+</body>
+
+</html>

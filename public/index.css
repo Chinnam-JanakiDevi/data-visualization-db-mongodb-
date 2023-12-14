@@ -1,0 +1,31 @@
+.line_bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Adjust the gap between columns */
+    padding: 20px;
+  }
+  
+  .line_bar {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  #bar-chart, #chart-container {
+    margin-top: 20px;
+  }
+  
+  .pie_chart {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 10px; /* Adjust the gap between columns */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .sub_pie_chart {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 5px; /* Adjust the gap between columns */
+  }
