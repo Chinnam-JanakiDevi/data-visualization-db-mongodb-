@@ -1,3 +1,9 @@
+let menuicn = document.querySelector(".menuicn");
+let nav = document.querySelector(".navcontainer");
+
+menuicn.addEventListener("click", () => {
+  nav.classList.toggle("navclose");
+})
 
 // bar chart: Show the trend of intensity over time.
 
@@ -345,7 +351,7 @@ fetch('http://localhost:5000/api/insights')
     const legend = d3.select('#legend-container').append('ul')
       .selectAll('li')
       .data(relevanceData)
-      
+
       .enter()
       .append('li');
     const legends = d3.select('#combined-legend-container').append('ul')
@@ -378,69 +384,153 @@ fetch('http://localhost:5000/api/insights')
 
 //---------------
 fetch('http://localhost:5000/api/insights')
-      .then(response => response.json())
-      .then(data => {
-        const regionCounts = data.reduce((counts, d) => {
-          counts[d.region] = (counts[d.region] || 0) + 1;
-          return counts;
-        }, {});
+  .then(response => response.json())
+  .then(data => {
+    const regionCounts = data.reduce((counts, d) => {
+      counts[d.region] = (counts[d.region] || 0) + 1;
+      return counts;
+    }, {});
 
-        const regionData = Object.entries(regionCounts).map(([region, count]) => ({ region, count }));
+    const regionData = Object.entries(regionCounts).map(([region, count]) => ({ region, count }));
 
-        // Bar Chart
-        const svgWidth = 900, svgHeight = 450;
-        const margin = { top: 20, right: 30, bottom: 70, left: 50 };
-        const width = svgWidth - margin.left - margin.right;
-        const height = svgHeight - margin.top - margin.bottom;
+    // Bar Chart
+    const svgWidth = 900, svgHeight = 450;
+    const margin = { top: 20, right: 30, bottom: 70, left: 50 };
+    const width = svgWidth - margin.left - margin.right;
+    const height = svgHeight - margin.top - margin.bottom;
 
-        const svg = d3.select('#region-chart').append('svg')
-          .attr('width', svgWidth)
-          .attr('height', svgHeight)
-          .append('g')
-          .attr('transform', `translate(${margin.left},${margin.top})`);
+    const svg = d3.select('#region-chart').append('svg')
+      .attr('width', svgWidth)
+      .attr('height', svgHeight)
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        const xScale = d3.scaleBand()
-          .domain(regionData.map(d => d.region))
-          .range([0, width])
-          .padding(0.1);
+    const xScale = d3.scaleBand()
+      .domain(regionData.map(d => d.region))
+      .range([0, width])
+      .padding(0.1);
 
-        const yScale = d3.scaleLinear()
-          .domain([0, d3.max(regionData, d => d.count)])
-          .range([height, 0]);
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(regionData, d => d.count)])
+      .range([height, 0]);
 
-        svg.selectAll('rect')
-          .data(regionData)
-          .enter().append('rect')
-          .attr('x', d => xScale(d.region))
-          .attr('y', d => yScale(d.count))
-          .attr('width', xScale.bandwidth())
-          .attr('height', d => height - yScale(d.count))
-          .attr('fill', 'steelblue');
+    svg.selectAll('rect')
+      .data(regionData)
+      .enter().append('rect')
+      .attr('x', d => xScale(d.region))
+      .attr('y', d => yScale(d.count))
+      .attr('width', xScale.bandwidth())
+      .attr('height', d => height - yScale(d.count))
+      .attr('fill', 'steelblue');
 
-        svg.append('g')
-          .attr('transform', `translate(0,${height})`)
-          .call(d3.axisBottom(xScale))
-          .selectAll('text')
-          .attr('transform', 'rotate(-45)')
-          .style('text-anchor', 'end');
+    svg.append('g')
+      .attr('transform', `translate(0,${height})`)
+      .call(d3.axisBottom(xScale))
+      .selectAll('text')
+      .attr('transform', 'rotate(-45)')
+      .style('text-anchor', 'end');
 
-        svg.append('g')
-          .call(d3.axisLeft(yScale));
+    svg.append('g')
+      .call(d3.axisLeft(yScale));
 
-          svg.append('text')
-          .attr('transform', `translate(${width / 2},${height + margin.top +50})`)  // Adjust the '55' value for additional downward movement
-          .style('text-anchor', 'middle')
-          .text('Region');
+    svg.append('text')
+      .attr('transform', `translate(${width / 2},${height + margin.top + 50})`)  // Adjust the '55' value for additional downward movement
+      .style('text-anchor', 'middle')
+      .text('Region');
 
-        svg.append('text')
-          .attr('transform', 'rotate(-90)')
-          .attr('y', 0 - margin.left)
-          .attr('x', 0 - height / 2)
-          .attr('dy', '1em')
-          .style('text-anchor', 'middle')
-          .text('Event Count');
+    svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', 0 - margin.left)
+      .attr('x', 0 - height / 2)
+      .attr('dy', '1em')
+      .style('text-anchor', 'middle')
+      .text('Event Count');
 
-       
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  
+
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
+
+
+//Histogram to Display the distribution of events over different years.
+// Fetch data from the API
+fetch('http://localhost:5000/api/insights')
+  .then(response => response.json())
+  .then(data => {
+    // Process data
+    const years = data.map(d => d.start_year || 'N/A'); // Assuming start_year is the property for the year
+
+    // Count occurrences of each year
+    const yearCounts = {};
+    years.forEach(year => {
+      yearCounts[year] = (yearCounts[year] || 0) + 1;
+    });
+
+    // Convert yearCounts to an array of objects
+    const histogramData = Object.entries(yearCounts).map(([year, count]) => ({
+      year,
+      count
+    }));
+
+    // Set up the SVG container
+    const svgWidth = 800;
+    const svgHeight = 400;
+    const margin = { top: 20, right: 20, bottom: 80, left: 60 };
+    const width = svgWidth - margin.left - margin.right;
+    const height = svgHeight - margin.top - margin.bottom;
+
+    const svg = d3.select('#histogram-container').append('svg')
+      .attr('width', svgWidth)
+      .attr('height', svgHeight)
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // Create the histogram
+    const xScale = d3.scaleBand()
+      .domain(histogramData.map(d => d.year))
+      .range([0, width])
+      .padding(0.1);
+
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(histogramData, d => d.count)])
+      .range([height, 0]);
+
+    svg.selectAll('rect')
+      .data(histogramData)
+      .enter().append('rect')
+      .attr('x', d => xScale(d.year))
+      .attr('y', d => yScale(d.count))
+      .attr('width', xScale.bandwidth())
+      .attr('height', d => height - yScale(d.count))
+      .attr('fill', 'steelblue');
+
+    // Add axes
+    svg.append('g')
+      .attr('transform', `translate(0,${height})`)
+      .call(d3.axisBottom(xScale))
+      .selectAll('text')
+      .attr('transform', 'rotate(-45)')
+      .style('text-anchor', 'end');
+
+    svg.append('g')
+      .call(d3.axisLeft(yScale));
+
+    // Add labels
+    svg.append('text')
+      .attr('transform', `translate(${width / 2},${height + margin.top + 20})`)
+      .style('text-anchor', 'middle')
+      .text('Year');
+
+    svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', 0 - margin.left)
+      .attr('x', 0 - height / 2)
+      .attr('dy', '1em')
+      .style('text-anchor', 'middle')
+      .text('Event Count');
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
+
+//-------
+

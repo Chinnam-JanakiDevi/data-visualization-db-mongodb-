@@ -9,7 +9,8 @@ const mongoose = require('mongoose');
 const Insight = require('./models/insight');
 
 const PORT=5000;
-const url = 'mongodb://127.0.0.1:27017/sample'; 
+const url = 'mongodb://127.0.0.1:27017/sample';    //bNnaW8MhXAwtlnAe
+//mongodb+srv://chinnamjanakidevi123:<password>@cluster0.zkix1hk.mongodb.net/
 //-------------------------connection code----------------------------------
 mongoose.connect(url, { useNewUrlParser: true,useUnifiedTopology: true });
 const db = mongoose.connection;

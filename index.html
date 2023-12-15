@@ -12,35 +12,139 @@
 <body>
 
   <!-- Container for the bar chart -->
-  <h1>Intensity vs published(Show the trend of intensity over time.)</h1>
+  <header>
 
-  <div class="line_bar">
-    <div id="bar-chart"></div>
-    <div id="chart-container"></div>
-  </div>
-  <p>When visualizing "intensity vs sector" in a bar chart, you would likely have each bar representing a different
-    sector (e.g., "Energy," "Technology," etc.), and the height of the bar would represent the intensity value
-    associated with that sector. This helps in comparing the intensity levels across different sectors and identifying
-    trends or variations.</p>
-  <div id="int_vs_sect"></div>
-  <p>X-axis (Likelihood): The x-axis in the bar chart represents the different likelihood values associated with events
-    or scenarios. In your dataset, the "likelihood" variable has values like 1, 2, 3, etc., indicating the likelihood
-    level of each event.
-    Y-axis (Count) : The y-axis represents the count or frequency of occurrences for each likelihood value. For each
-    likelihood level (1, 2, 3, etc.), there is a corresponding bar on the chart, and the height of each bar indicates
-    how many events or scenarios have that particular likelihood level.</p>
-  <div id="likelihood"></div>
-  <div class="pie_chart">
-    <div id="relevance"></div>
-    <div class="sub_pie_chart">
-      <div id="legend-container"></div>
-      <div id="combined-legend-container"></div>
+    <div class="logosec">
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+        class="icn menuicn" id="menuicn" alt="menu-icon">
+      <div class="logo">Data Visualization</div>
+      
+    </div>
+
+    <div class="searchbar">
+      <input type="text" placeholder="Search">
+      <div class="searchbtn">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+          class="icn srchicn" alt="search-icon">
+      </div>
+    </div>
+
+    <div class="message">
+      <div class="circle"></div>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="icn" alt="">
+      <div class="dp">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+          class="dpicn" alt="dp">
+      </div>
+    </div>
+
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="nav-option option1">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+              class="nav-img" alt="dashboard">
+            <h3> Dashboard</h3>
+          </div>
+
+          <div class="option2 nav-option">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img"
+              alt="articles">
+            <h3> Articles</h3>
+          </div>
+
+          <div class="nav-option option3">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png" class="nav-img"
+              alt="report">
+            <h3> Report</h3>
+          </div>
+
+          <div class="nav-option option4">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png" class="nav-img"
+              alt="institution">
+            <h3> Institution</h3>
+          </div>
+
+          <div class="nav-option option5">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png" class="nav-img"
+              alt="blog">
+            <h3> Profile</h3>
+          </div>
+
+          <div class="nav-option option6">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png" class="nav-img"
+              alt="settings">
+            <h3> Settings</h3>
+          </div>
+
+          <div class="nav-option logout">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img"
+              alt="logout">
+            <h3>Logout</h3>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+
+      <div class="searchbar2">
+        <input type="text" name="" id="" placeholder="Search">
+        <div class="searchbtn">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+            class="icn srchicn" alt="search-button">
+        </div>
+      </div>
+
+
+      <h1>Intensity vs published(Show the trend of intensity over time.)</h1>
+
+      <div class="line_bar">
+        <div id="bar-chart"></div>
+        <div id="chart-container"></div>
+      </div>
+      <p>When visualizing "intensity vs sector" in a bar chart, you would likely have each bar representing a different
+        sector (e.g., "Energy," "Technology," etc.), and the height of the bar would represent the intensity value
+        associated with that sector. This helps in comparing the intensity levels across different sectors and
+        identifying
+        trends or variations.</p>
+      <div id="int_vs_sect"></div>
+      <p>X-axis (Likelihood): The x-axis in the bar chart represents the different likelihood values associated with
+        events
+        or scenarios. In your dataset, the "likelihood" variable has values like 1, 2, 3, etc., indicating the
+        likelihood
+        level of each event.
+        Y-axis (Count) : The y-axis represents the count or frequency of occurrences for each likelihood value. For each
+        likelihood level (1, 2, 3, etc.), there is a corresponding bar on the chart, and the height of each bar
+        indicates
+        how many events or scenarios have that particular likelihood level.</p>
+      <div id="likelihood"></div>
+      <div class="pie_chart">
+        <div id="relevance"></div>
+        <div class="sub_pie_chart">
+          <div id="legend-container"></div>
+          <div id="combined-legend-container"></div>
+        </div>
+      </div>
+
+      <p>In the provided code, a bar chart is visualized using D3.js to show the distribution of events across different
+        regions. The data used for this bar chart is based on the region property in each entry of the dataset. The
+        number of events in each region is counted, and a bar chart is created to represent this distribution.</p>
+      <div id="region-chart"></div>
+      <p>The visualization is a histogram that displays the distribution of events over different years.</p>
+      <div id="histogram-container"></div>
+      <div id="word-cloud"></div>
+      <script src="/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+      <script src="https://cdn.rawgit.com/jasondavies/d3-cloud/v1.2.5/build/d3.layout.cloud.js"></script>
+
+
     </div>
   </div>
-  <p>In the provided code, a bar chart is visualized using D3.js to show the distribution of events across different regions. The data used for this bar chart is based on the region property in each entry of the dataset. The number of events in each region is counted, and a bar chart is created to represent this distribution.</p>
-  <div id="region-chart"></div>
-  <script src="/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+  
 
 
 </body>
