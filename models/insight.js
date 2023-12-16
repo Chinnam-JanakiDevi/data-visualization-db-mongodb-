@@ -21,6 +21,6 @@ const insightSchema = new mongoose.Schema({
   likelihood: Number,
 });
 
-const Insight = mongoose.model('Insight', insightSchema);
+const Insight = mongoose.model('data', insightSchema);
 
 module.exports = Insight;
