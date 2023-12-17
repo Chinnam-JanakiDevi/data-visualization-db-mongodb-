@@ -20,7 +20,7 @@
       <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
         class="icn menuicn" id="menuicn" alt="menu-icon">
       <div class="logo">Data Visualization</div>
-      
+
     </div>
 
     <div class="searchbar">
@@ -36,7 +36,7 @@
       <!-- <div class="circle"></div>
       <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="icn" alt=""> -->
       <div class="dp">
-        
+
         <img src="https://img.freepik.com/free-photo/portrait-happy-woman-with-digital-tablet_329181-11681.jpg"
           class="dpicn" alt="dp">
       </div>
@@ -75,7 +75,7 @@
           <div class="nav-option option5">
             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png" class="nav-img"
               alt="blog">
-            <h3> My Resume</h3>
+            <h3><a href="https://drive.google.com/file/d/16mxN0t1mc0dgVur7fKprq0Gq2M9YyUuI/view?usp=sharing">My Resume</a></h3>
           </div>
 
           <div class="nav-option option6">
@@ -104,28 +104,39 @@
       </div>
 
 
-      <h1>Intensity vs published(Show the trend of intensity over time.)</h1>
+
 
       <div class="line_bar">
+        <h1>Intensity vs published(Show the trend of intensity over time.)</h1>
         <div id="bar-chart"></div>
         <div id="chart-container"></div>
       </div>
-      <p>When visualizing "intensity vs sector" in a bar chart, you would likely have each bar representing a different
-        sector (e.g., "Energy," "Technology," etc.), and the height of the bar would represent the intensity value
-        associated with that sector. This helps in comparing the intensity levels across different sectors and
-        identifying
-        trends or variations.</p>
-      <div id="int_vs_sect"></div>
-      <p>X-axis (Likelihood): The x-axis in the bar chart represents the different likelihood values associated with
-        events
-        or scenarios. In your dataset, the "likelihood" variable has values like 1, 2, 3, etc., indicating the
-        likelihood
-        level of each event.
-        Y-axis (Count) : The y-axis represents the count or frequency of occurrences for each likelihood value. For each
-        likelihood level (1, 2, 3, etc.), there is a corresponding bar on the chart, and the height of each bar
-        indicates
-        how many events or scenarios have that particular likelihood level.</p>
-      <div id="likelihood"></div>
+      <div class="int_vs_sect1">
+        <h1 style="text-align: center;">Intensity vs sector</h1>
+        <div id="int_vs_sect"></div>
+        <p>When visualizing <b>intensity vs sector</b> in a bar chart, you would likely have each bar representing a
+          different
+          sector (e.g., "Energy," "Technology," etc.), and the height of the bar would represent the intensity value
+          associated with that sector. This helps in comparing the intensity levels across different sectors and
+          identifying
+          trends or variations.</p>
+      </div>
+
+      <div class="int_vs_sect1">
+        <h1 style="text-align: center;">likelihood values associated with events count</h1>
+        <div id="likelihood"></div>
+        <p>X-axis (Likelihood): The x-axis in the bar chart represents the different <b>likelihood values associated
+            with
+            events</b> or scenarios. In your dataset, the "likelihood" variable has values like 1, 2, 3, etc.,
+          indicating the
+          likelihood
+          level of each event.
+          Y-axis (Count) : The y-axis represents the count or frequency of occurrences for each likelihood value. For
+          each
+          likelihood level (1, 2, 3, etc.), there is a corresponding bar on the chart, and the height of each bar
+          indicates
+          how many events or scenarios have that particular likelihood level.</p>
+      </div>
       <div class="pie_chart">
         <div id="relevance"></div>
         <div class="sub_pie_chart">
@@ -134,12 +145,23 @@
         </div>
       </div>
 
-      <p>In the provided code, a bar chart is visualized using D3.js to show the distribution of events across different
-        regions. The data used for this bar chart is based on the region property in each entry of the dataset. The
-        number of events in each region is counted, and a bar chart is created to represent this distribution.</p>
-      <div id="region-chart"></div>
-      <p>The visualization is a histogram that displays the distribution of events over different years.</p>
-      <div id="histogram-container"></div>
+      <div class="int_vs_sect1">
+        <h1 style="text-align: center;">Events across different Regions</h1>
+
+        <div id="region-chart"></div>
+        <p>A bar chart is visualized using D3.js to show the distribution of <b>events across different regions</b>. The
+          data
+          used for this bar chart is based on the region property in each entry of the dataset. The
+          number of events in each region is counted, and a bar chart is created to represent this distribution.</p>
+
+      </div>
+      <div class="int_vs_sect1">
+        <h1 style="text-align: center;">Events over different years</h1>
+
+        <div id="histogram-container"></div>
+        <p>The visualization is a histogram that displays the distribution of <b>events over different years.</b></p>
+
+      </div>
       <div id="word-cloud"></div>
       <script src="/script.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
@@ -148,7 +170,7 @@
 
     </div>
   </div>
-  
+
 
 
 </body>

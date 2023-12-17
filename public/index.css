@@ -37,6 +37,13 @@
   /* Adjust the gap between columns */
 }
 
+.int_vs_sect1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+}
 @media screen and (max-width: 768px) {
 
   .line_bar,
