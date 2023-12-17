@@ -9,7 +9,7 @@ const path = require("path");
 const bodyParser=require("body-parser");
 const Router = express.Router(); 
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 //mongodb+srv://chinnamjanakidevi123:<password>@cluster0.zkix1hk.mongodb.net/
 mongoose.set('strictQuery', false);
 MONGO_URI="mongodb+srv://chinnamjanakidevi123:bNnaW8MhXAwtlnAe@cluster0.zkix1hk.mongodb.net/test"

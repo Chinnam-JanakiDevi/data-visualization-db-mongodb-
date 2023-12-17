@@ -7,7 +7,7 @@ menuicn.addEventListener("click", () => {
 
 // bar chart: Show the trend of intensity over time.
 
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     // Parse timestamps as Date objects
@@ -76,7 +76,7 @@ fetch('http://localhost:5000/api/insights')
 
 // Line Chart: Show the trend of intensity over time.
 
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     // Parse timestamps as Date objects
@@ -146,7 +146,7 @@ fetch('http://localhost:5000/api/insights')
 
 //bar chart intensity vs sector
 
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     // Assuming 'sector' is the field in your data representing different sectors
@@ -222,7 +222,7 @@ fetch('http://localhost:5000/api/insights')
 //likelihood 
 // public/script.js
 
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     // Count the occurrences of each likelihood value
@@ -298,7 +298,7 @@ fetch('http://localhost:5000/api/insights')
 
 //pie chart :relevance across different categories or topics.
 // Fetch data from the API
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     const uniqueSectors = [...new Set(data.map(d => d.sector))];
@@ -383,7 +383,7 @@ fetch('http://localhost:5000/api/insights')
 
 
 //---------------
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     const regionCounts = data.reduce((counts, d) => {
@@ -454,7 +454,7 @@ fetch('http://localhost:5000/api/insights')
 
 //Histogram to Display the distribution of events over different years.
 // Fetch data from the API
-fetch('http://localhost:5000/api/insights')
+fetch('http://localhost:3000/api/insights')
   .then(response => response.json())
   .then(data => {
     // Process data
