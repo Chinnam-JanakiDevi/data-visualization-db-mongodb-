@@ -12,7 +12,7 @@ const Router = express.Router();
 const PORT = process.env.PORT || 3000
 //mongodb+srv://chinnamjanakidevi123:<password>@cluster0.zkix1hk.mongodb.net/
 mongoose.set('strictQuery', false);
-MONGO_URI="mongodb+srv://chinnamjanakidevi123:bNnaW8MhXAwtlnAe@cluster0.zkix1hk.mongodb.net/test"
+MONGO_URI = "mongodb+srv://mongodb:4GgsHlwHQK4cox94@cluster0.0fkb1mh.mongodb.net/sample"
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
